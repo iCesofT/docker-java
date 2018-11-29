@@ -34,9 +34,9 @@ ENV JAVA_OPTS -server \
     -XX:MinMetaspaceExpansion=${JVM_MIN_METASPACE_EXPANSION} -XX:MaxMetaspaceExpansion=${JVM_MAX_METASPACE_EXPANSION} -XX:MaxMetaspaceSize=${JVM_MAX_METASPACE_SIZE} \
     -XX:InitialBootClassLoaderMetaspaceSize=${JVM_INITIAL_BOOT_CLASSLOADER_METASPACE_SIZE} \
     -XX:MinMetaspaceFreeRatio=${JVM_MIN_METASPACE_FREE_RATIO} -XX:MaxMetaspaceFreeRatio=${JVM_MAX_METASPACE_FREE_RATIO} \
-    -XX:ReservedCodeCacheSize=${JVM_RESERVED_CODE_CACHE_SIZE} -XX:+UnlockExperimentalVMOptions \
-    -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=${JVM_MAX_RAM_FRACTION} \
-    -XX:+UseStringDeduplication
+    -XX:ReservedCodeCacheSize=${JVM_RESERVED_CODE_CACHE_SIZE} -XX:MaxRAMFraction=${JVM_MAX_RAM_FRACTION} \
+    -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap \
+    -XX:+UseStringDeduplication -XX:TieredStopAtLevel=1 -noverify
 
 RUN set -x \
  && export MALLOC_ARENA_MAX=${MALLOC_ARENA_MAX} \
